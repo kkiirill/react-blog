@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './PostList.css';
 import { API_POST, getPostFromServer } from '../../Api/apiPost';
 import { PostItem } from '../PostItem/PostItem';
@@ -7,6 +7,7 @@ import { MyModal } from '../Modal/MyModal';
 import axios from 'axios';
 
 export default function PostList() {
+
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -37,13 +38,12 @@ export default function PostList() {
         .then(response => {
           setPosts(response.data)
         })
-
     }
   }
 
   const removePosts = (post) => {
     console.log(post)
-    axios.delete(`https://bloggy-api.herokuapp.com/posts/${post.id}`, {
+    axios.delete(`${API_POST}/${post.id}`, {
       post,
     })
       .then(response => {
@@ -51,20 +51,7 @@ export default function PostList() {
       })
   }
 
-  const changePost = ({ titlePost, descriptionPost }) => {
-    if (titlePost | descriptionPost) {
-      setPosts(posts.map((p) => {
-        if (p.title !== titlePost) {
-          setPosts(p.title === p.titlePost)
-        }
-
-        if (p.description !== descriptionPost) {
-          setPosts(p.description === p.descriptionPost)
-        }
-        return posts;
-      }))
-    }
-  }
+ 
 
   return (
     <main>
@@ -72,7 +59,7 @@ export default function PostList() {
       <br style={{ border: '1px solid grey' }} />
       {loading
         ? <Spinner animation="border" size="xl" />
-        : <PostItem posts={posts} remove={removePosts} changePost={changePost} />
+        : <PostItem posts={posts} remove={removePosts}  />
       }
     </main>
   )

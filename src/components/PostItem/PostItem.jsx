@@ -21,10 +21,10 @@ export const PostItem = ({ posts, remove, changePost }) => {
                 </Link>
               </Card.Body>
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                <EditModal changePost={changePost} />
+  
                 <Button
-                  style={{ margin: '10px 10px ', width: '70px' }}
-                  size="sm"
+                  style={{ width: '90px', margin: '30px' }}
+                  size="xl"
                   variant="danger"
                   onClick={() => remove(post)}
                 >

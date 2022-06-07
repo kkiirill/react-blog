@@ -8,16 +8,16 @@ import PostList from "./components/PostList/PostList";
 function App() {
   return (
     <div>
-    <Header />
+      <Header />
 
-    <Routes>
-      <Route path='/' element={<PostList />} />
-      <Route path="/post/" element={<PostInfo />}>
-        <Route path=":postID" element={<PostInfo />} />
-      </Route>
-      <Route path='/about' element={<About />} />
-      <Route path='*' element={<Notfound />} />
-    </Routes>
+      <Routes>
+        <Route path='/' element={<PostList />} />
+        <Route path="/post/" element={<PostInfo />}>
+          <Route path=":postID" element={<PostInfo />} />
+        </Route>
+        <Route path='/about' element={<About />} />
+        <Route path='*' element={<Notfound />} />
+      </Routes>
     </div>
   );
 }
