@@ -26,18 +26,21 @@ export default function PostList() {
     getPost()
   }, [])
 
-  const addPost = ({ titlePost, descriptionPost }) => {
+  const addPost = ({ titlePost, descriptionPost }, e) => {
+ 
+
     if (titlePost || descriptionPost) {
       const newPost = {
         id: Math.random().toString(36).substring(2, 9),
         title: titlePost,
         body: descriptionPost,
       }
-
+      e.preventDefault();
       axios.post(API_POST, newPost)
         .then(response => {
           setPosts(response.data)
         })
+      
     }
   }
 
@@ -46,6 +49,7 @@ export default function PostList() {
         .then(response => {
           setPosts(response.data)
         })
+    setPosts([...posts].filter((p) => p.id !== post.id));
   }
 
   const changePost = ({ titlePost, descriptionPost }) => {
