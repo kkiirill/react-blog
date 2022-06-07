@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import './CommentsList.css';
 import CommentsItem from '../CommentsItem/CommentsItem';
 import { Button, Form } from 'react-bootstrap';
-import FormCheckInput from 'react-bootstrap/esm/FormCheckInput';
 
 export const CommentsList = ({ postId }) => {
   const [comments, setComments] = useState([]);
