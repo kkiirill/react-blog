@@ -26,30 +26,29 @@ export default function PostList() {
     getPost()
   }, [])
 
-  const addPost = ({ titlePost, descriptionPost }, e) => {
- 
-
+  const addPost = ({ titlePost, descriptionPost }) => {
     if (titlePost || descriptionPost) {
       const newPost = {
         id: Math.random().toString(36).substring(2, 9),
         title: titlePost,
         body: descriptionPost,
       }
-      e.preventDefault();
       axios.post(API_POST, newPost)
         .then(response => {
           setPosts(response.data)
         })
-      
+
     }
   }
 
   const removePosts = (post) => {
-    axios.post(API_POST, post)
-        .then(response => {
-          setPosts(response.data)
-        })
-    setPosts([...posts].filter((p) => p.id !== post.id));
+    console.log(post)
+    axios.delete(`https://bloggy-api.herokuapp.com/posts/${post.id}`, {
+      post,
+    })
+      .then(response => {
+        setPosts(response.data)
+      })
   }
 
   const changePost = ({ titlePost, descriptionPost }) => {
