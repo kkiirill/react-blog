@@ -29,7 +29,7 @@ export const CommentsList = ({ postId }) => {
     axios.post(commentsUrl, newComment)
       .then(response => {
         console.log(response)
-        setComments([...response.data])
+        setComments(response.data, newComment)
       })
       
   }
