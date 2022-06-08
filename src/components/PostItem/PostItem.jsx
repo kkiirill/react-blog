@@ -2,10 +2,11 @@ import { Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 export const PostItem = ({ posts, remove }) => {
-
+  console.log(posts)
   return (
     <div>
       {posts.map((post, index) => {
+        console.log(posts)
         return (
           <Card key={post.id}>
             <Card.Header as="h5">Post {index + 1}</Card.Header>

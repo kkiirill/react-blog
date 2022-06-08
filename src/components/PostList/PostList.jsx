@@ -36,8 +36,7 @@ export default function PostList() {
       }
       axios.post(API_POST, newPost)
         .then(response => {
-          console.log(response)
-          setPosts(response.data)
+          setPosts(response.data, newPost)
         })
     }
   }
