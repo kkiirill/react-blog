@@ -14,7 +14,6 @@ export const CommentsList = ({ postId }) => {
     fetch(commentsUrl)
       .then(res => res.json())
       .then(data => setComments(data))
-    console.log(comments)
   }, []);
 
   const addNewComment = (e) => {
@@ -24,14 +23,14 @@ export const CommentsList = ({ postId }) => {
       id: Date.now(),
       body: bodyComment,
       postId: postId,
+      timestamp: new Date().toLocaleTimeString(),
     }
 
     axios.post(commentsUrl, newComment)
-      .then(response => {
-        console.log(response)
-        setComments(response.data, newComment)
+      .then(() => {
+        setComments([...comments, newComment]);
+        setBodyComment('');
       })
-      
   }
 
   return (

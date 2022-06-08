@@ -35,8 +35,8 @@ export default function PostList() {
         body: descriptionPost,
       }
       axios.post(API_POST, newPost)
-        .then(response => {
-          setPosts(response.data, newPost)
+        .then(() => {
+          setPosts([...posts, newPost])
         })
     }
   }
@@ -45,8 +45,8 @@ export default function PostList() {
     axios.delete(`${API_POST}/${post.id}`, {
       post,
     })
-      .then(response => {
-        setPosts(response.data)
+      .then(() => {
+          setPosts([...posts].filter((p) => p.id !== post.id))
       })
   }
 
