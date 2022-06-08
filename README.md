@@ -1,6 +1,23 @@
-# Getting Started with Create React App
+# React Blog
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+Implementation of React with a simple Blog Web Application, CRUD application to consume web API, display and modify data using Router, Axios and Bootstrap.
+
+Technologies used:
+
+🚀 react
+
+🚀 react-router
+
+🚀 bootstrap react
+
+🚀 react hooks
+
+[DEMO](https://kkiirill.github.io/react-blog/)
+
+
+
 
 ## Available Scripts
 
