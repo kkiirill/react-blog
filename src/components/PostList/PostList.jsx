@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './PostList.css';
 import { API_POST, getPostFromServer } from '../../Api/apiPost';
 import { PostItem } from '../PostItem/PostItem';
@@ -36,13 +36,13 @@ export default function PostList() {
       }
       axios.post(API_POST, newPost)
         .then(response => {
+          console.log(response)
           setPosts(response.data)
         })
     }
   }
 
   const removePosts = (post) => {
-    console.log(post)
     axios.delete(`${API_POST}/${post.id}`, {
       post,
     })
@@ -50,8 +50,6 @@ export default function PostList() {
         setPosts(response.data)
       })
   }
-
- 
 
   return (
     <main>

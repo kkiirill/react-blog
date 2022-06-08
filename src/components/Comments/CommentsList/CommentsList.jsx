@@ -23,19 +23,21 @@ export const CommentsList = ({ postId }) => {
     const newComment = {
       id: Date.now(),
       body: bodyComment,
-      time: new Date().getTime,
+      postId: postId,
     }
 
     axios.post(commentsUrl, newComment)
-    .then(response => {
-      setComments(response.data)
-    })
+      .then(response => {
+        console.log(response)
+        setComments(response.data)
+      })
+      
   }
 
   return (
     <div className="comment-section">
       <h3 style={{ textAlign: 'center' }}>Comments on this post: {comments.length}</h3>
-      <Form.Group  className="mb-3" controlId="exampleForm.ControlInput1">
+      <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
         <Form.Label>New comment</Form.Label>
         <Form.Control
           type="text"
@@ -44,7 +46,7 @@ export const CommentsList = ({ postId }) => {
           value={bodyComment}
           onChange={e => setBodyComment(e.target.value)}
         />
-         <Button onClick={addNewComment} style={{ margin: '10px' }}variant="primary"  >Add</Button>
+        <Button style={{ margin: '10px' }} variant="primary" onClick={addNewComment}>Add</Button>
       </Form.Group>
 
       {

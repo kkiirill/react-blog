@@ -1,8 +1,7 @@
 import { Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { EditModal } from '../Modal/EditModal';
 
-export const PostItem = ({ posts, remove, changePost }) => {
+export const PostItem = ({ posts, remove }) => {
 
   return (
     <div>

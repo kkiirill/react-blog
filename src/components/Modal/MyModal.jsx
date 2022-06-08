@@ -8,19 +8,19 @@ export function MyModal({ addPost }) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
+  const handleSubmit = () => {
+
     addPost({ titlePost, descriptionPost })
     setTitlePost('');
     setDescriptionPost('');
   }
 
   const handleChangeTitle = (e) => {
-    setTitlePost(e.currentTarget.value)
+    setTitlePost(e.target.value)
   }
 
   const handleChangeDescription = (e) => {
-    setDescriptionPost(e.currentTarget.value)
+    setDescriptionPost(e.target.value)
   }
 
   return (
